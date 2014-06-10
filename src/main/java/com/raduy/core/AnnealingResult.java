@@ -1,6 +1,6 @@
 package com.raduy.core;
 
-import com.raduy.presentation.IPresentStrategy;
+import com.raduy.presentation.IPresentationStrategy;
 
 import java.util.Collections;
 import java.util.List;
@@ -21,7 +21,7 @@ public class AnnealingResult {
         this.finalSolution = finalSolution;
     }
 
-    public void present(IPresentStrategy presentStrategy) {
+    public void present(IPresentationStrategy presentStrategy) {
         presentStrategy.present(this);
     }
 

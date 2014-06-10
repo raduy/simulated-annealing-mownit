@@ -1,6 +1,4 @@
-package com.raduy;
-
-import com.raduy.core.City;
+package com.raduy.core;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,14 +1,15 @@
-package com.raduy.presentation;
+package com.raduy.presentation.console;
 
 import com.raduy.core.AnnealingResult;
 import com.raduy.core.City;
+import com.raduy.presentation.IPresentationStrategy;
 
 import java.util.List;
 
 /**
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>
  */
-public class ConsolePresentStrategy implements IPresentStrategy {
+public class ConsolePresentationStrategy implements IPresentationStrategy {
 
     @Override
     public void present(AnnealingResult result) {

@@ -1,7 +1,5 @@
 package com.raduy.core;
 
-import com.raduy.*;
-import com.raduy.presentation.ConsolePresentStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -66,13 +64,5 @@ public class SimulatedAnnealing {
 
         LOGGER.info("Computing finish with success");
         return new AnnealingResult(initialDistance, initialTour, finalDistance, finalTour);
-    }
-
-
-    public static void main(String[] args) {
-
-        AnnealingResult result = SimulatedAnnealing.compute(CityFactory.newRandomCitiesList(10));
-
-        result.present(new ConsolePresentStrategy());
     }
 }

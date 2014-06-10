@@ -5,7 +5,7 @@ import com.raduy.core.AnnealingResult;
 /**
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>
  */
-public interface IPresentStrategy {
+public interface IPresentationStrategy {
 
     void present(AnnealingResult annealingResult);
 }
