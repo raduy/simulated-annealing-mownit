@@ -1,5 +1,7 @@
 package com.raduy;
 
+import com.raduy.core.City;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

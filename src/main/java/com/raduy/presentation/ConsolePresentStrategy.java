@@ -1,4 +1,7 @@
-package com.raduy;
+package com.raduy.presentation;
+
+import com.raduy.core.AnnealingResult;
+import com.raduy.core.City;
 
 import java.util.List;
 

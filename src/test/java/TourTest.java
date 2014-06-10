@@ -1,6 +1,6 @@
-import com.raduy.City;
-import com.raduy.Tour;
-import com.raduy.TourManager;
+import com.raduy.core.City;
+import com.raduy.core.Tour;
+import com.raduy.core.TourManager;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

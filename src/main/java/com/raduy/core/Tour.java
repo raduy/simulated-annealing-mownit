@@ -1,4 +1,4 @@
-package com.raduy;
+package com.raduy.core;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Lists;

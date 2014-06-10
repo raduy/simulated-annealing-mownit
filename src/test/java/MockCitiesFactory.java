@@ -1,4 +1,4 @@
-import com.raduy.City;
+import com.raduy.core.City;
 
 import java.util.ArrayList;
 import java.util.List;

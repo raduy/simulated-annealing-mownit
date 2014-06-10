@@ -1,4 +1,6 @@
-package com.raduy;
+package com.raduy.core;
+
+import com.raduy.presentation.IPresentStrategy;
 
 import java.util.Collections;
 import java.util.List;

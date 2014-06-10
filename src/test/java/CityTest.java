@@ -1,4 +1,4 @@
-import com.raduy.City;
+import com.raduy.core.City;
 import org.junit.Before;
 import org.junit.Test;
 

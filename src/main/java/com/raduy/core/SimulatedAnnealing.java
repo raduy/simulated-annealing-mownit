@@ -1,5 +1,7 @@
-package com.raduy;
+package com.raduy.core;
 
+import com.raduy.*;
+import com.raduy.presentation.ConsolePresentStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

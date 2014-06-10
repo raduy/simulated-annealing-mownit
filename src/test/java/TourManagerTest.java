@@ -1,9 +1,8 @@
-import com.raduy.TourManager;
-import com.raduy.City;
+import com.raduy.core.TourManager;
+import com.raduy.core.City;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.fest.assertions.Assertions.assertThat;
