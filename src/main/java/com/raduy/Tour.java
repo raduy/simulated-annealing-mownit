@@ -13,7 +13,7 @@ import java.util.List;
 public class Tour {
     private final List<City> tourOrderedCities;
     private final TourManager tourManager;
-    private int distance = 0;
+    private double distance = 0;
 
     public Tour(TourManager tourManager) {
         this.tourManager = tourManager;
@@ -45,12 +45,12 @@ public class Tour {
         tourOrderedCities.set(position, city);
     }
 
-    public int getDistance() {
+    public double getDistance() {
         if (distance != 0) {
             return distance;
         }
 
-        int partialDistance = 0;
+        double partialDistance = 0;
         for (int i = 0; i < getTourSize(); i++) {
             City fromCity = tourOrderedCities.get(i);
 
