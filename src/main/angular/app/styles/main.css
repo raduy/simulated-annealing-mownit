@@ -1,0 +1,15 @@
+.float-left {
+    float: left;
+}
+
+.form-control {
+    width: 80px !important;
+}
+
+.knots-input {
+    width: 25%;
+}
+
+.footer {
+    margin-left: 20px;
+}
