@@ -27,18 +27,18 @@ public class City {
     }
 
 
+    public double computeDistanceTo(City anotherCity) {
+        final int xDiff = Math.abs(anotherCity.getX() - this.getX());
+        final int yDiff = Math.abs(anotherCity.getY() - this.getY());
+
+        return Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+    }
+
     @Override
     public String toString() {
         return Objects.toStringHelper(this)
                 .add("x", x)
                 .add("y", y)
                 .toString();
-    }
-
-    public double computeDistanceTo(City anotherCity) {
-        final int xDiff = Math.abs(anotherCity.getX() - this.getX());
-        final int yDiff = Math.abs(anotherCity.getY() - this.getY());
-
-        return Math.sqrt(xDiff * xDiff + yDiff * yDiff);
     }
 }
