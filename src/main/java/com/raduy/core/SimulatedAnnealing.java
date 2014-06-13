@@ -39,8 +39,6 @@ public class SimulatedAnnealing {
         List<Double> temperature = new ArrayList<>((int) (initialTemp * coolingRate));
         List<Double> distance = new ArrayList<>((int) (initialTemp * coolingRate));
 
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
-
         while (initialTemp > 1) {
             Tour newSolution = new Tour(tourManager, currentSolution);
 
@@ -75,7 +73,7 @@ public class SimulatedAnnealing {
         final double finalDistance = best.getDistance();
         final List<City> finalTour = best.getTour();
 
-        LOGGER.info("Computing finish with success");
+        LOGGER.info("Computing finished with success");
         return new AnnealingResult(initialDistance, initialTour, finalDistance, finalTour, temperature, distance);
     }
 }
