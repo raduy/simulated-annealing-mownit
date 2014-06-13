@@ -3,7 +3,6 @@ package com.raduy.core;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,7 +58,7 @@ public class SimulatedAnnealing {
             }
 
             try {
-                if (((int)Math.floor(currentEnergy) % 10) == 0) {
+                if (((int)Math.floor(currentEnergy) % 20) == 0) {
                     temperature.add(Math.floor(currentEnergy));
                     distance.add(Math.floor(currentSolution.getDistance()));
                 }
