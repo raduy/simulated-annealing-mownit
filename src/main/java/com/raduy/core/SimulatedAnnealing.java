@@ -1,10 +1,15 @@
 package com.raduy.core;
 
 import org.slf4j.Logger;
+
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
+
+/**
+ * @author Lukasz Raduj <raduj.lukasz@gmail.com>
+ */
 public class SimulatedAnnealing {
     private final static Logger LOGGER = LoggerFactory.getLogger(SimulatedAnnealing.class);
 
@@ -16,17 +21,11 @@ public class SimulatedAnnealing {
     }
 
 
-    public static AnnealingResult compute(List<City> cities) {
-        LOGGER.info("Computing started");
+    public static AnnealingResult compute(List<City> cities, double initialTemp, double coolingRate) {
+        LOGGER.info("Computing started. InitTemp: {}, CoolingRate: {}", initialTemp, coolingRate);
 
         TourManager tourManager = new TourManager();
         tourManager.addAllCitiesToList(cities);
-
-//        initial temperature
-        double temp = 1e14;
-
-//        cooling rate
-        double coolingRate = 0.0001;
 
         Tour currentSolution = new Tour(tourManager);
         currentSolution.generateInitialTour();
@@ -36,7 +35,7 @@ public class SimulatedAnnealing {
 
         Tour best = new Tour(tourManager, currentSolution);
 
-        while (temp > 1) {
+        while (initialTemp > 1) {
             Tour newSolution = new Tour(tourManager, currentSolution);
 
             int firstPosition = (int) (Math.random() * newSolution.getTourSize());
@@ -47,7 +46,7 @@ public class SimulatedAnnealing {
             double currentEnergy = currentSolution.getDistance();
             double possibleEnergy = newSolution.getDistance();
 
-            if (isNewEnergyAcceptable(currentEnergy, possibleEnergy, temp) > Math.random()) {
+            if (isNewEnergyAcceptable(currentEnergy, possibleEnergy, initialTemp) > Math.random()) {
                 currentSolution = newSolution;
             }
 
@@ -55,8 +54,7 @@ public class SimulatedAnnealing {
                 best = currentSolution;
             }
 
-//            cool the system
-            temp *= 1 - coolingRate;
+            initialTemp *= 1 - coolingRate;
         }
 
         final double finalDistance = best.getDistance();

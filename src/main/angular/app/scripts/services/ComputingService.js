@@ -1,8 +1,7 @@
 'use strict';
 
 simulatedAnnealingApp.factory('ComputingService', ['$resource', function($resource) {
-    return $resource('http://localhost\\:4567//hello', {
-    }, {
+    return $resource('http://localhost\\:4567//compute', {}, {
         compute: {
             method: 'GET',
             isArray: true

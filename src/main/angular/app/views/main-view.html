@@ -13,11 +13,11 @@
                 <li>
                     <form class="navbar-form navbar-left">
                         <div class="form-group">
-                            <button class="btn btn-sm" ng-click="decrementNumberOfKnots()"><i
+                            <button class="btn btn-sm" ng-click="model.paramsMod.decreaseInitTemp()"><i
                                     class="glyphicon glyphicon-chevron-left"></i></button>
-                            <input class="text-center form-control" ng-model="input.numberOfKnots" type="text"
+                            <input class="text-center form-control" ng-model="model.saParams.initialTemp" type="text"
                                    placeholder="Initial energy"/>
-                            <button class="btn btn-sm" ng-click="incrementNumberOfKnots()"><i
+                            <button class="btn btn-sm" ng-click="model.paramsMod.increaseInitTemp()"><i
                                     class="glyphicon glyphicon-chevron-right"></i></button>
                         </div>
                     </form>
@@ -28,11 +28,11 @@
                 <li>
                     <form class="navbar-form navbar-left">
                         <div class="form-group">
-                            <button class="btn btn-sm" ng-click="decrementDegree()"><i
+                            <button class="btn btn-sm" ng-click="model.paramsMod.decreaseCoolingRate()"><i
                                     class="glyphicon glyphicon-chevron-left"></i></button>
-                            <input class="text-center form-control" ng-model="input.degree" type="text"
+                            <input class="text-center form-control" ng-model="model.saParams.coolingRate" type="text"
                                    placeholder="Cooling rate"/>
-                            <button class="btn btn-sm" ng-click="incrementDegree()"><i
+                            <button class="btn btn-sm" ng-click="model.paramsMod.increaseCoolingRate()"><i
                                     class="glyphicon glyphicon-chevron-right"></i></button>
                         </div>
                     </form>

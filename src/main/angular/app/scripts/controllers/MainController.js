@@ -5,6 +5,17 @@ var simulatedAnnealingApp = angular.module('angularApp');
 simulatedAnnealingApp.controller('MapController', function ($scope, ComputingService) {
 
     $scope.model = {
+//        Simulated Annealing params
+        saParams: {
+            initialTemp: 100000,
+            coolingRate: 0.0001
+        },
+        paramsMod: {
+            increaseInitTemp: increaseInitTemp,
+            decreaseInitTemp: decreaseInitTemp,
+            increaseCoolingRate: increaseCoolingRate,
+            decreaseCoolingRate: decreaseCoolingRate
+        },
         newCityMode: true,
         canvas: {
             ready: false
@@ -16,18 +27,21 @@ simulatedAnnealingApp.controller('MapController', function ($scope, ComputingSer
         customCities: []
     };
 
-    function compute() {
-        var citiesToVisit = {
-            cities: angular.copy($scope.model.customCities)
-        };
 
-        ComputingService.compute({cities: citiesToVisit}, function (successResult) {
-            $scope.model.result = successResult;
-            drawTour(ctx, $scope.model.result);
+    function increaseInitTemp() {
+        $scope.model.saParams.initialTemp = 10 * $scope.model.saParams.initialTemp;
+    }
 
-        }, function (failResult) {
-            console.log("computing failed", failResult);
-        });
+    function decreaseInitTemp() {
+        $scope.model.saParams.initialTemp = 0.1 * $scope.model.saParams.initialTemp;
+    }
+
+    function increaseCoolingRate() {
+        $scope.model.saParams.coolingRate = 10 * $scope.model.saParams.coolingRate;
+    }
+
+    function decreaseCoolingRate() {
+        $scope.model.saParams.coolingRate = 0.1 * $scope.model.saParams.coolingRate;
     }
 
     function addNewCity() {
@@ -62,4 +76,20 @@ simulatedAnnealingApp.controller('MapController', function ($scope, ComputingSer
     background.onload = function () {
         $scope.model.canvas.ready = true;
     };
+
+    function compute() {
+        var computeRequest = {
+            cities: angular.copy($scope.model.customCities),
+            initialTemp: angular.copy($scope.model.saParams.initialTemp),
+            coolingRate: angular.copy($scope.model.saParams.coolingRate)
+        };
+
+        ComputingService.compute({computeRequest: computeRequest}, function (successResult) {
+            $scope.model.result = successResult;
+            drawTour(ctx, $scope.model.result);
+
+        }, function (failResult) {
+            console.log("computing failed", failResult);
+        });
+    }
 });
