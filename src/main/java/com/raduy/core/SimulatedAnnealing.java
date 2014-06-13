@@ -1,9 +1,10 @@
 package com.raduy.core;
 
 import org.slf4j.Logger;
-
 import org.slf4j.LoggerFactory;
 
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -35,6 +36,11 @@ public class SimulatedAnnealing {
 
         Tour best = new Tour(tourManager, currentSolution);
 
+        List<Double> temperature = new ArrayList<>((int) (initialTemp * coolingRate));
+        List<Double> distance = new ArrayList<>((int) (initialTemp * coolingRate));
+
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+
         while (initialTemp > 1) {
             Tour newSolution = new Tour(tourManager, currentSolution);
 
@@ -54,6 +60,15 @@ public class SimulatedAnnealing {
                 best = currentSolution;
             }
 
+            try {
+                if (((int)Math.floor(currentEnergy) % 10) == 0) {
+                    temperature.add(Math.floor(currentEnergy));
+                    distance.add(Math.floor(currentSolution.getDistance()));
+                }
+            } catch (Exception e) {
+                LOGGER.error("Conversion failed, Cause: {}", e.getMessage());
+            }
+
             initialTemp *= 1 - coolingRate;
         }
 
@@ -61,6 +76,6 @@ public class SimulatedAnnealing {
         final List<City> finalTour = best.getTour();
 
         LOGGER.info("Computing finish with success");
-        return new AnnealingResult(initialDistance, initialTour, finalDistance, finalTour);
+        return new AnnealingResult(initialDistance, initialTour, finalDistance, finalTour, temperature, distance);
     }
 }

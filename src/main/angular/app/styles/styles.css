@@ -67,3 +67,20 @@ body {
     overflow-x: hidden;
     max-height: 826px;
 }
+
+.big-font {
+    font-size: 20px;
+}
+
+#graph-progress {
+    margin-bottom: 0 !important;
+}
+
+#coefficient {
+    height: 140px !important;
+    width: 240px !important;
+}
+
+.huge-font {
+    font-size: 40px;
+}

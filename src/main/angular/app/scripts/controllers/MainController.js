@@ -17,6 +17,9 @@ simulatedAnnealingApp.controller('MapController', function ($scope, ComputingSer
             decreaseCoolingRate: decreaseCoolingRate
         },
         newCityMode: true,
+        result: {
+            isReady: false
+        },
         canvas: {
             ready: false
         },
@@ -86,7 +89,9 @@ simulatedAnnealingApp.controller('MapController', function ($scope, ComputingSer
 
         ComputingService.compute({computeRequest: computeRequest}, function (successResult) {
             $scope.model.result = successResult;
-            drawTour(ctx, $scope.model.result);
+            drawTour(ctx, $scope.model.result.finalSolution);
+            $scope.model.result.isReady = true;
+            drawGraph($scope.model.result);
 
         }, function (failResult) {
             console.log("computing failed", failResult);

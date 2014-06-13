@@ -16,10 +16,18 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
+
+    <!--CSS-->
+    <link rel="stylesheet" href="lib/css/nv.d3.css">
+
+    <!--D3 && NV-->
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="lib/js/nv.d3.js"></script>
+
     <link rel="stylesheet" href="styles/styles.css">
     <!-- endbuild -->
 </head>
@@ -67,11 +75,11 @@
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
-<script src="scripts/controllers/MainController.js"></script>
-<script src="scripts/services/ComputingService.js"></script>
+<script src="scripts/plain_js/graph-drawing.js"></script>
 <script src="scripts/plain_js/canvas-drawing-utils.js"></script>
 <script src="scripts/plain_js/model-representation.js"></script>
-
+<script src="scripts/controllers/MainController.js"></script>
+<script src="scripts/services/ComputingService.js"></script>
 
 <!-- endbuild -->
 </body>

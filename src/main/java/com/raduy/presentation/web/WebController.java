@@ -22,7 +22,7 @@ public class WebController {
             ComputeRequest req = gson.fromJson(request.queryParams("computeRequest"), ComputeRequest.class);
             LOGGER.info("Request received. Cities: {}. InitTemp: {}, CoolingRate: {}", req.getCities(), req.getInitialTemp(), req.getCoolingRate());
 
-            return SimulatedAnnealing.compute(req.getCities(), req.getInitialTemp(), req.getCoolingRate()).getFinalTour();
+            return SimulatedAnnealing.compute(req.getCities(), req.getInitialTemp(), req.getCoolingRate());
         }, json());
 
         after((req, res) -> {
