@@ -7,8 +7,8 @@ angular.module('angularApp', [
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/main-view.html',
+        controller: 'MapController'
       })
       .otherwise({
         redirectTo: '/'

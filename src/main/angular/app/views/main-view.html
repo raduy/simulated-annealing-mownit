@@ -1,0 +1,95 @@
+<!--<div>-->
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">TSM with Simulated Annealing</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="">Initial energy: </a></li>
+                <li>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <button class="btn btn-sm" ng-click="decrementNumberOfKnots()"><i
+                                    class="glyphicon glyphicon-chevron-left"></i></button>
+                            <input class="text-center form-control" ng-model="input.numberOfKnots" type="text"
+                                   placeholder="Initial energy"/>
+                            <button class="btn btn-sm" ng-click="incrementNumberOfKnots()"><i
+                                    class="glyphicon glyphicon-chevron-right"></i></button>
+                        </div>
+                    </form>
+                </li>
+
+                <li class="active"><a href="#">Cooling rate: </a></li>
+
+                <li>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <button class="btn btn-sm" ng-click="decrementDegree()"><i
+                                    class="glyphicon glyphicon-chevron-left"></i></button>
+                            <input class="text-center form-control" ng-model="input.degree" type="text"
+                                   placeholder="Cooling rate"/>
+                            <button class="btn btn-sm" ng-click="incrementDegree()"><i
+                                    class="glyphicon glyphicon-chevron-right"></i></button>
+                        </div>
+                    </form>
+                </li>
+                <li>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <button class="navbar-left btn btn-danger" ng-click="model.compute()" ng-disabled="!model.canvas.ready">
+                                Compute
+                            </button>
+                        </div>
+                    </form>
+                </li>
+
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<div class="sidebar col-md-2">
+    <div  class="panel panel-primary">
+        <div class="panel-heading">Custom cities:</div>
+        <div id="custom-cities-list" class="panel-body text-center ">
+            <button id="add-city-button" class="btn btn-danger col-md-12" ng-click="model.toggleNewCityMode()"
+                    ng-switch="model.newCityMode">
+
+                <icon ng-switch-when="false" class="glyphicon glyphicon-plus"> Add city</icon>
+                <icon ng-switch-when="true" class="glyphicon glyphicon-stop"> Stop new city mode</icon>
+
+            </button>
+
+            <ul  class="list-unstyled col-md-12">
+                <li class="divider"></li>
+
+                <li ng-repeat="city in model.customCities">
+                    <section class="input-group city-block col-lg-9" ng-init="disabled = true" ng-click="disabled = !disabled">
+                        <input type="text" class="form-control" ng-disabled="disabled"
+                               value="{{city.name}}">
+                        <span class="input-group-addon">({{city.x}}, {{city.y}})</span>
+                    </section>
+                </li>
+            </ul>
+        </div>
+        <div class="panel-footer"></div>
+    </div>
+</div>
+
+<div class="canvas-div col-md-1">
+    <canvas id="map-canvas" class="canvas" ng-class="{'add-new-city-cursor': model.newCityMode}"
+            ng-click="model.addNewCity()">
+        sfd
+    </canvas>
+</div>
+
+<footer class="footer">
+    <p>Łukasz Raduj 2014, AGH UST</p>
+</footer>
+<!--</div>-->
